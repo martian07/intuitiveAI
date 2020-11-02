@@ -1,1 +1,567 @@
-<h>another page</h>
+<!DOCTYPE html>
+<title>Self driving car</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="medium.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <style>
+
+    #cf {
+      position:relative;
+      height:281px;
+      width:450px;
+      margin:0 auto;
+    }
+
+    #cf img {
+      position:absolute;
+      left:0;
+      -webkit-transition: opacity 5s ease-in-out;
+      -moz-transition: opacity 5s ease-in-out;
+      -o-transition: opacity 5s ease-in-out;
+      transition: opacity 5s ease-in-out;
+    }
+
+    #cf img.bottom:hover {
+      opacity:0;
+    }
+
+
+    .im {
+      background: url("steer.png");
+    }
+
+
+    td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width:120px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="meta"> 
+      <div class="image im"></div>
+      <div class="info"> 
+        <h1>How self driving cars steer?</h1>
+        <p class="subtitle">Given the images from the camera at runtime.</p>
+
+      </div>
+    </div>
+    <main class="article">
+
+      <p>
+        <span class="first-letter">M</span>ost of the self-driving cars use images to decide there action. Like if you see a right turn, you turn your steering clockwise some unit and if left then anti-clockwise to some unit and this keeps your car smoothly on the road, similarly a ml model takes input as image and outputs rotation of the steering.</p>
+       
+        <div class="w3-row-padding w3-margin-top">
+          <div class="w3-third">
+            <div class="w3-card">
+              <img src="roads/l1.jpeg" style="width:100%">
+              <div class="w3-container">
+                <h5 class="w3-center">-5</h5>
+              </div>
+            </div>
+          </div>
+        
+          <div class="w3-third">
+            <div class="w3-card">
+              <img src="roads/r1.jpeg" style="width:100%">
+              <div class="w3-container">
+                <h5 class="w3-center">10</h5>
+              </div>
+            </div>
+          </div>
+        
+          <div class="w3-third">
+            <div class="w3-card">
+              <img src="roads/s1.jpeg" style="width:100%">
+              <div class="w3-container">
+                <h5 class="w3-center">0</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="w3-row-padding w3-margin-top">
+          <div class="w3-third">
+            <div class="w3-card">
+              <img src="roads/r2.jpeg" style="width:100%">
+              <div class="w3-container">
+                <h5 class="w3-center">6</h5>
+              </div>
+            </div>
+          </div>
+        
+          <div class="w3-third">
+            <div class="w3-card">
+              <img src="roads/s2.jpeg" style="width:100%">
+              <div class="w3-container">
+                <h5 class="w3-center">0</h5>
+              </div>
+            </div>
+          </div>
+        
+          <div class="w3-third">
+            <div class="w3-card" style="width:84%">
+              <img src="roads/l2.jpeg" style="width:100%">
+              <div class="w3-container">
+                <h5 class="w3-center">-9</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Training example</h2>
+        <p>Most of AI algorithm needs pre-training before execution as we humans are pre-schooled to answer 2+2 = 4 because we were taught 1+1 = 2 and 2+1 = 3 or learn to recognize A for apple, B for ball. </p>
+        <img src="rotation.jpg" class="w3-round w3-center" alt="rotation" style="width:70%">
+        <p>Let's look at our first example, the input is left turning road and label is -5 which means whenever you see a left-turning road steering should be anti-clockwisewith some unit, if it's turning too much then it would be -20,-30, etc and if little then  -4,-5,-3 are fine and vice versa for right-turning images. </p>
+      
+        <h2>Pre-Processing</h2>
+        <p>The next step is to simplify images so that we can feed our algorithm.<br>
+         1. Coverting RGB image to greyscale<br>
+         2. And greyscale to lower dimension.<br>
+         3. Flattening to a single row.</p>
+        
+         <div class="w3-row-padding w3-margin-top">
+          <div class="w3-third">
+            <div class="w3-card">
+              <img src="roads/low.jpg" style="width:100%">
+              <div class="w3-container">
+                <h5 class="w3-center">-5</h5>
+              </div>
+            </div>
+          </div>
+          <div class="w3-third">
+            <div id="cf" class="w3-card" style="height:48%">
+              
+                
+                <img class="top" src="roads/low.jpg" style="width:48%">
+                <img class="bottom" src="roads/t.jpg">
+            </div>
+            
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+     
+        <script> 
+        $(document).ready(function(){
+          $("#flatten").click(function(){
+            $("#s").animate({left: '120px'},1000, 'linear');
+            $("#s").animate({top: '-26px'},1000, 'linear');
+            
+            $("#t").animate({left: '240px'},1500, 'linear');
+            $("#t").animate({top: '-52px'},1500, 'linear');
+            
+            $("#fr").animate({left: '360px'},2000, 'linear');
+            $("#fr").animate({top: '-78px'},2000, 'linear');
+            $("#fade").fadeIn(10000);
+            
+          });
+
+  
+
+        });
+        </script> 
+      <div class="w3-bar w3-center">
+       <button id="flatten" class="w3-button w3-teal w3-center">Flatten</button>
+      </div>
+      <h2 id="fade" style="display: none;" class="w3-right">: 5</h2>
+       <br>
+      <br>
+      <br>
+      <div> 
+      <table id="f"
+      style="background:rgb(226, 221, 221);"><tr><td>00</td><td>11</td><td>12</td><td>00</td><td>00</td></tr></table>
+      </div>
+
+
+
+      <div>
+        <table id="s"
+        style="background:rgb(226, 221, 221);position:relative;"><tr><td>02</td><td>32</td><td>43</td><td>01</td><td>00</td></tr></table>
+      </div>
+
+
+      <div>
+        <table id="t"
+        style="background:rgb(226, 221, 221);position:relative;"><tr><td>00</td><td>54</td><td>56</td><td>76</td><td>00</td></tr></table>
+      </div>
+
+      <div>
+        <table id="fr"
+        style="background:rgb(226, 221, 221);position:relative;"><tr><td>30</td><td>56</td><td>68</td><td>78</td><td>00</td></tr></table>
+      </div>
+  
+      <blockquote>Similarly for all examples</blockquote>
+      
+      <ul class="w3-ul w3-card-4">
+        <li class="w3-padding-16 w3-hover-light-grey">
+          <span class="w3-white w3-xlarge w3-right w3-hover-red">-5</span>
+          <img src="roads/l1.jpeg" class="w3-left w3-margin-right" style="width:50px">
+          <table id="l1" class="w3-center"
+          style="background:rgb(226, 221, 221);width:400px"><tr><td>00</td><td>00</td><td>05</td><td>04</td><td>00</td><td>10</td><td>14</td><td>03</td><td>02</td><td>12</td><td>11</td><td>02</td><td>04</td><td>04</td><td>01</td><td>00</td></tr></table>
+        </li>
+        
+        <li class="w3-padding-16 w3-hover-light-grey">
+          <span class="w3-white w3-xlarge w3-right w3-hover-red">10</span>
+          <img src="roads/r1.jpeg" class="w3-left w3-margin-right" style="width:50px">
+          <table id="r1" class="w3-center"
+          style="background:rgb(226, 221, 221);width:400px"><tr><td>00</td><td>01</td><td>04</td><td>04</td><td>02</td><td>11</td><td>12</td><td>02</td><td>03</td><td>14</td><td>10</td><td>00</td><td>04</td><td>05</td><td>00</td><td>00</td></tr></table>
+        </li>
+
+        <li class="w3-padding-16 w3-hover-light-grey">
+          <span class="w3-white w3-xlarge w3-right w3-hover-red">0</span>
+          <img src="roads/s1.jpeg" class="w3-left w3-margin-right" style="width:50px">
+          <table id="s1" class="w3-center"
+          style="background:rgb(226, 221, 221);width:400px"><tr><td>00</td><td>08</td><td>08</td><td>00</td><td>00</td><td>12</td><td>12</td><td>00</td><td>00</td><td>10</td><td>10</td><td>00</td><td>00</td><td>08</td><td>08</td><td>00</td></tr></table>
+        </li>
+
+        <li class="w3-padding-16 w3-hover-light-grey">
+          <span class="w3-white w3-xlarge w3-right w3-hover-red">6</span>
+          <img src="roads/r2.jpeg" class="w3-left w3-margin-right" style="width:50px">
+          <table id="r2" class="w3-center"
+          style="background:rgb(226, 221, 221);width:400px"><tr><td>00</td><td>00</td><td>06</td><td>14</td><td>00</td><td>06</td><td>12</td><td>10</td><td>00</td><td>15</td><td>20</td><td>11</td><td>06</td><td>11</td><td>05</td><td>00</td></tr></table>
+        </li>
+
+
+        <li class="w3-padding-16 w3-hover-light-grey">
+          <span class="w3-white w3-xlarge w3-right w3-hover-red">0</span>
+          <img src="roads/s2.jpeg" class="w3-left w3-margin-right" style="width:50px">
+          <table id="s2" class="w3-center"
+          style="background:rgb(226, 221, 221);width:400px"><tr><td>00</td><td>10</td><td>10</td><td>00</td><td>00</td><td>11</td><td>11</td><td>00</td><td>00</td><td>12</td><td>12</td><td>00</td><td>00</td><td>11</td><td>11</td><td>00</td></tr></table>
+        </li>
+
+        <li class="w3-padding-16 w3-hover-light-grey">
+          <span class="w3-white w3-xlarge w3-right w3-hover-red">-9</span>
+          <img src="roads/l2.jpeg" class="w3-left w3-margin-right" style="width:50px">
+          <table id="l2" class="w3-center"
+          style="background:rgb(226, 221, 221);width:400px"><tr><td>10</td><td>08</td><td>10</td><td>00</td><td>12</td><td>20</td><td>12</td><td>00</td><td>00</td><td>15</td><td>10</td><td>06</td><td>00</td><td>08</td><td>06</td><td>00</td></tr></table>
+        </li>
+
+      </ul>
+      <br>
+      <br>
+
+      <h1 class="w3-center">Training</h1>
+        <p>
+          Now we are ready to start the training, we have all the data in single row vector of length 16 with their labels.
+        </p>
+
+        <p>
+          The first step is to pick 16 random numbers as a row vector and name it as weights(W): 
+        </p>
+
+
+        <div class="w3-center">
+        <table id="w1"
+        style="background:rgb(226, 134, 134); width:400px;"><tr><td>1</td><td>-3</td><td>1</td><td>4</td><td>-2</td><td>6</td><td>-3</td><td>5</td><td>0</td><td>-1</td><td>0</td><td>-1</td><td>2</td><td>0</td><td>1</td><td>-7</td></tr></table>
+        <br>
+        <br>
+        <div>
+        <p>Then pick one of the examples.</p>
+
+          <img src="roads/left_turn.jpeg" class="w3-right w3-margin-right" style="width:50px">  
+        <h5 style="float: right;">exampla(X) with label -9</h5>
+        <table id="last_example" class="w3-center"
+      style="background:rgb(226, 221, 221);width:400px"><tr><td>00</td><td>00</td><td>12</td><td>11</td><td>00</td><td>15</td><td>13</td><td>05</td><td>07</td><td>00</td><td>00</td><td>00</td><td>12</td><td>00</td><td>10</td><td>14</td></tr></table>
+       </div>
+       <br>
+       <br>
+        </div>
+
+    
+       <p>Next step is to multiply every element of both the rows i.e weights and example and then sum them all.</p>
+       <p>[w1*x1 + w2*x2...... + w19*x19 + w20*x20]</p>
+       <p>[ <span class="highlighted" id="fb">1*00</span> + <span class="highlighted" id="sb">-3*00</span> +...<span class="highlighted" id="sl">1*10</span> + <span class="highlighted" id="l">-7*14</span> ] = 68</p>
+ 
+       <script>
+         $(document).ready(function(){
+          $("#fb").hover( function () {
+            var ex_cell = $("#last_example").find("td").eq(0);
+            ex_cell.css("background-color", "yellow");
+
+            var w1_cell = $("#w1").find("td").eq(0);
+            w1_cell.css("background-color", "yellow");
+          },
+
+          function(){
+            var ex_cell = $("#last_example").find("td").eq(0);
+            ex_cell.css("background-color", "rgb(226, 221, 221)");
+
+            var w1_cell = $("#w1").find("td").eq(0);
+            w1_cell.css("background-color", "rgb(226, 134, 134)");
+
+          });
+
+          $("#sb").hover( function () {
+            var ex_cell = $("#last_example").find("td").eq(1);
+            ex_cell.css("background-color", "yellow");
+
+            var w1_cell = $("#w1").find("td").eq(1);
+            w1_cell.css("background-color", "yellow");
+          },
+
+          function(){
+            var ex_cell = $("#last_example").find("td").eq(1);
+            ex_cell.css("background-color", "rgb(226, 221, 221)");
+
+            var w1_cell = $("#w1").find("td").eq(1);
+            w1_cell.css("background-color", "rgb(226, 134, 134)");
+
+          });
+
+
+
+          $("#sl").hover( function () {
+            var ex_cell = $("#last_example").find("td").eq(14);
+            ex_cell.css("background-color", "yellow");
+
+            var w1_cell = $("#w1").find("td").eq(14);
+            w1_cell.css("background-color", "yellow");
+          },
+
+          function(){
+            var ex_cell = $("#last_example").find("td").eq(14);
+            ex_cell.css("background-color", "rgb(226, 221, 221)");
+
+            var w1_cell = $("#w1").find("td").eq(14);
+            w1_cell.css("background-color", "rgb(226, 134, 134)");
+
+          });
+         
+         
+          $("#l").hover( function () {
+            var ex_cell = $("#last_example").find("td").eq(15);
+            ex_cell.css("background-color", "yellow");
+
+            var w1_cell = $("#w1").find("td").eq(15);
+            w1_cell.css("background-color", "yellow");
+          },
+
+          function(){
+            var ex_cell = $("#last_example").find("td").eq(15);
+            ex_cell.css("background-color", "rgb(226, 221, 221)");
+
+            var w1_cell = $("#w1").find("td").eq(15);
+            w1_cell.css("background-color", "rgb(226, 134, 134)");
+
+          });
+
+        });
+       </script>  
+  
+        <P>Bingo! you have made your first prediction and the output is 68 and which is incorrect &#128517; </P>
+        
+        
+        <h2>Loss = |predicted output - actual label|</h2>
+        <p>With random weights our model predicted 68 which 77 point less than actual label -9. This means our model is terribly wrong and now we have to change the weights so that when multipled and sumed with example, it gives -9</p>
+         
+        <div class="w3-row" ng-app="myApp" ng-controller="personCtrl">
+
+
+         
+
+
+
+        <h2 class="w3-right"><span class="w3-green">Actual</span>  <span class="w3-blue">Predicted</span> <span class="w3-red">Loss</span></h2>
+        
+        <blockquote>Similarly for all examples</blockquote>
+      
+        <ul class="w3-ul w3-card-4">
+          <li class="w3-padding-16 w3-hover-light-grey">
+            <span class="label w3-xlarge w3-right w3-text-green">-5<font color="blue">    {{ p0()}}</font><font color="red">    {{ l0() }}</font></span>
+            <img src="roads/l1.jpeg" class="w3-left w3-margin-right" style="width:50px">
+            <table id="l1_" class="example w3-center"
+        style="background:rgb(226, 221, 221);width:200px"><tr><td>00</td><td>00</td><td>05</td><td>04</td><td>00</td><td>10</td><td>14</td><td>03</td><td>02</td><td>12</td><td>11</td><td>02</td><td>04</td><td>04</td><td>01</td><td>00</td></tr></table>
+          </li>
+          
+          <li class="w3-padding-16 w3-hover-light-grey">
+            <span class="label w3-xlarge w3-right w3-text-green">10<font color="blue">    {{ p1() }}</font><font color="red">    {{ l1() }}</font></span> <img src="roads/r1.jpeg" class="w3-left w3-margin-right" style="width:50px">
+            <table id="r1_" class=" example w3-center"
+        style="background:rgb(226, 221, 221);width:200px"><tr><td>00</td><td>01</td><td>04</td><td>04</td><td>02</td><td>11</td><td>12</td><td>02</td><td>03</td><td>14</td><td>10</td><td>00</td><td>04</td><td>05</td><td>00</td><td>00</td></tr></table>
+          </li>
+  
+          <li class="w3-padding-16 w3-hover-light-grey">
+            <span class="label w3-xlarge w3-right w3-text-green">00<font color="blue">    {{ p2()}}</font><font color="red">    {{ l2()}}</font></span><img src="roads/s1.jpeg" class="w3-left w3-margin-right" style="width:50px">
+            <table id="s1_" class="example w3-center"
+        style="background:rgb(226, 221, 221);width:200px"><tr><td>00</td><td>08</td><td>08</td><td>00</td><td>00</td><td>12</td><td>12</td><td>00</td><td>00</td><td>10</td><td>10</td><td>00</td><td>00</td><td>08</td><td>08</td><td>00</td></tr></table>
+          </li>
+  
+          <li class="w3-padding-16 w3-hover-light-grey">
+            <span class="label w3-xlarge w3-right w3-text-green">06<font color="blue">    {{ p3()}}</font><font color="red">    {{ l3() }}</font></span><img src="roads/r2.jpeg" class="w3-left w3-margin-right" style="width:50px">
+            <table id="r2_" class="example w3-center"
+        style="background:rgb(226, 221, 221);width:200px"><tr><td>00</td><td>00</td><td>06</td><td>14</td><td>00</td><td>06</td><td>12</td><td>10</td><td>00</td><td>15</td><td>20</td><td>11</td><td>06</td><td>11</td><td>05</td><td>00</td></tr></table>
+          </li>
+  
+  
+          <li class="w3-padding-16 w3-hover-light-grey">
+            <span class="label w3-xlarge w3-right w3-text-green">00<font color="blue">    {{ p4() }}</font><font color="red">    {{ l4() }}</font></span><img src="roads/s2.jpeg" class="w3-left w3-margin-right" style="width:50px">
+            <table id="s2_" class="example w3-center"
+        style="background:rgb(226, 221, 221);width:200px"><tr><td>00</td><td>10</td><td>10</td><td>00</td><td>00</td><td>11</td><td>11</td><td>00</td><td>00</td><td>12</td><td>12</td><td>00</td><td>00</td><td>11</td><td>11</td><td>00</td></tr></table>
+          </li>
+  
+          <li class="w3-padding-16 w3-hover-light-grey">
+            <span class="label w3-xlarge w3-right w3-text-green">-7<font color="blue">    {{ p5() }}</font><font color="red">    {{ l5() }}</font></span><img src="roads/l2.jpeg" class="w3-left w3-margin-right" style="width:50px">
+            <table id="l2_" class="example w3-center"
+        style="background:rgb(226, 221, 221);width:200px"><tr><td>10</td><td>08</td><td>10</td><td>00</td><td>12</td><td>20</td><td>12</td><td>00</td><td>00</td><td>15</td><td>10</td><td>06</td><td>00</td><td>08</td><td>06</td><td>00</td></tr></table>
+          </li>
+        </ul>
+        <h2 class="w3-right"><span class="w3-text-red">{{ overall_loss() }}</span></h2>
+        <blockquote>Overall loss :</blockquote>
+       
+        <h2 style="width:125%">
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input0"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input1"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input2"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input3"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input4"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input5"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input6"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input7"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input8"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input9"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input10"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input11"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input12"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input13"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input14"></div>
+        <div class="w3-col" style="width:05%"><input class="w3-input w3-border w3-tiny" type="text" ng-model="input15"></div>
+        </h2>
+
+      </div>
+
+
+      <script>
+
+ 
+
+            var app = angular.module('myApp', []);
+            app.controller('personCtrl', function($scope) {
+              $scope.input0='1';
+              $scope.input1='3';
+              $scope.input2='-1';
+              $scope.input3='4';
+              $scope.input4='-2';
+              $scope.input5='6';
+              $scope.input6='-3';
+              $scope.input7='5';
+              $scope.input8='0';
+              $scope.input9='-1';
+              $scope.input10='0';
+              $scope.input11='-1';
+              $scope.input12='2';
+              $scope.input13='0';
+              $scope.input14='1';
+              $scope.input15='-7';
+              
+              $scope.p0 = function() { return ($scope.input0*00	+ $scope.input1*00	+ $scope.input2*05	+ $scope.input3*04	
+              + $scope.input4*00	+ $scope.input5*10	+ $scope.input6*14	+ $scope.input7*03	+ $scope.input8*02	+ $scope.input9*12	+ $scope.input10*11	+ $scope.input11*02	+ $scope.input12*04	+ $scope.input13*04	+ $scope.input14*01	+ $scope.input15*00).toFixed(1); };
+            
+            $scope.l0= function() {
+                
+                return Math.abs($scope.p0() -(-5)).toFixed(1) ;
+            };
+   
+
+            $scope.p1 = function() { return ($scope.input0*00	+ $scope.input1*01	+ $scope.input2*04	+ $scope.input3*04	
+                  + $scope.input4*02	+ $scope.input5*11	+ $scope.input6*12	+ $scope.input7*02	+ $scope.input8*03	+ $scope.input9*14	+ $scope.input10*10	+ $scope.input11*00	+ $scope.input12*04	+ $scope.input13*05	+ $scope.input14*00	+ $scope.input15*00).toFixed(1); };
+                
+            $scope.l1= function() {  
+                return Math.abs($scope.p1() -(10)).toFixed(1) ;
+            };
+
+
+            $scope.p2 = function() { return  ($scope.input0*00	+ $scope.input1*08	+ $scope.input2*08	+ $scope.input3*00	
+              + $scope.input4*00	+ $scope.input5*12	+ $scope.input6*12	+ $scope.input7*00	+ $scope.input8*00	+ $scope.input9*10	+ $scope.input10*10	+ $scope.input11*00	+ $scope.input12*00	+ $scope.input13*08	+ $scope.input14*08	+ $scope.input15*00).toFixed(1);
+            };
+            
+            $scope.l2= function() {
+                
+                return Math.abs($scope.p2() -(0)).toFixed(1) ;
+            };
+
+
+            $scope.p3 = function() { return  ($scope.input0*00	+ $scope.input1*00	+ $scope.input2*06	+ $scope.input3*14	
+              + $scope.input4*00	+ $scope.input5*06	+ $scope.input6*12	+ $scope.input7*10	+ $scope.input8*00	+ $scope.input9*15	+ $scope.input10*20	+ $scope.input11*11	+ $scope.input12*06	+ $scope.input13*11	+ $scope.input14*05	+ $scope.input15*00).toFixed(1);
+            };
+            
+            $scope.l3= function() {
+                
+                return Math.abs($scope.p3() -(6)).toFixed(1) ;
+            };
+
+
+            $scope.p4 = function() { return  ($scope.input0*00	+ $scope.input1*10	+ $scope.input2*10	+ $scope.input3*00	
+              + $scope.input4*00	+ $scope.input5*11	+ $scope.input6*11	+ $scope.input7*00	+ $scope.input8*00	+ $scope.input9*12	+ $scope.input10*12	+ $scope.input11*00	+ $scope.input12*00	+ $scope.input13*11	+ $scope.input14*11	+ $scope.input15*00).toFixed(1);
+            };
+            
+            $scope.l4= function() {
+                
+                return Math.abs($scope.p4() -(0)).toFixed(1) ;
+            };
+
+            $scope.p5 = function() { return  ($scope.input0*10	+ $scope.input1*08	+ $scope.input2*10	+ $scope.input3*00	
+              + $scope.input4*12	+ $scope.input5*20	+ $scope.input6*12	+ $scope.input7*00	+ $scope.input8*00	+ $scope.input9*15	+ $scope.input10*10	+ $scope.input11*06	+ $scope.input12*00	+ $scope.input13*08	+ $scope.input14*06	+ $scope.input15*00).toFixed(1);
+            };
+            
+            $scope.l5= function() {
+                
+                return Math.abs($scope.p5() -(-7)).toFixed(1) ;
+            };
+
+
+            $scope.overall_loss= function() {
+                 
+                 return parseFloat($scope.l0()) + parseFloat($scope.l1()) + parseFloat($scope.l2()) + parseFloat($scope.l3()) + parseFloat($scope.l4()) + parseFloat($scope.l5()) ;
+
+            };
+
+        });
+
+
+      </script>
+        <br>
+        <br>
+
+        <p>Above are the weights which we have to change(fine tune) to reduce the loss and overall loss near to zero as much as possible.</p>
+        <br>
+        <p>After few trail and error with weights, I got loss from 342 to 11. if you got better loss, please share in comment section. Here is mine: </p>
+        <p class="lineLength">1,1,-1,1,-2,3,-3,1,2,-1,0,-1,4.5,0,1,-7</p>
+
+        <h2>Prediction</h2>
+        <p id="demo"> As we have optimized weights, we can flatten a new image and multiply each element with one and other with weights and then sum them to get the direction as we have seen pre-processing steps, but with random weights, we got terrible results. Let's see with trained weights:</p>
+        <img src="roads/left_turn.jpeg" class="w3-left w3-margin-left" style="width:70px"> 
+        <table id="last_example_" class="w3-right" style="background:rgb(226, 221, 221);width:450px"><tbody><tr><td>00</td><td>00</td><td>12</td><td>11</td><td>00</td><td>15</td><td>13</td><td>05</td><td>07</td><td>00</td><td>00</td><td>00</td><td>12</td><td>00</td><td>10</td><td style="background-color: rgb(226, 221, 221);">14</td></tr></tbody></table>
+        <br>
+        <br>
+        <br>
+        <p><strong>[ <span id="fb_">1*00</span> + <span id="sb_">1*00</span> + <span id="sb_">-1*12</span> + ... + <span id="sl_">1*10</span> + <span id="l_">-7*14</span> ] = -10</strong></p>
+        <p>Voila! It is pretty close to -9 as we have seen earlier in the first example where with random weights it predicted 68.</p>
+        <p>Improvement in the model can be seen on only 6 examples, more examples will cover all the cases and patterns and hence the greater accuracy and lower loss.</p>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </main>
+  </div>
+</body>
+
