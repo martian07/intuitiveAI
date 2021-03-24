@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<title>Multiply</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://martian07.github.io/intuitiveAI/medium.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="scripts/jquery.table.transpose.min.js"></script>
+  <style>
+
+    #cf {
+      position:relative;
+      height:281px;
+      width:450px;
+      margin:0 auto;
+    }
+
+    #cf img {
+      position:absolute;
+      left:0;
+      -webkit-transition: opacity 5s ease-in-out;
+      -moz-transition: opacity 5s ease-in-out;
+      -o-transition: opacity 5s ease-in-out;
+      transition: opacity 5s ease-in-out;
+    }
+
+    #cf img.bottom:hover {
+      opacity:0;
+    }
+
+
+    .im {
+      background: url("steer.png");
+    }
+
+
+    td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width:120px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgcontainer {
+  position: relative;
+  text-align: center;
+  color: yellow;
+}
+
+.top-right {
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar (sit on top) -->
+<div class="w3-hide-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; height: 70px;">
+    <a href="https://martian07.github.io/intuitiveAI/" class="w3-bar-item w3-button">Martian 07</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="https://martian07.github.io/intuitiveAI/#readings" class="w3-bar-item w3-button">Readings</a>
+      <a href="https://martian07.github.io/intuitiveAI/#about" class="w3-bar-item w3-button">About</a>
+      <a href="https://martian07.github.io/intuitiveAI/#connect" class="w3-bar-item w3-button">Connect</a>
+    </div>
+  </div>
+</div>
+ <br>
+ <br>
+ <br> 
+  <div class="container">
+    <div class="meta"> 
+      <div class="image">
+        <!-- <iframe width=540px; height=305px; src="https://www.youtube.com/embed/OHJbv0RoVdQ?controls=1" frameborder="0" allowfullscreen></iframe> -->
+        <img width=540px; height=350px; src="Taare Zameen Par 9.jpg">
+      </div>
+      <div class="info"> 
+        <h1>Multiply</h1>
+      </div>
+    </div>
+    <main class="article">
+
+
+        <p><span class="first-letter">W</span>hy 2 x 3 is not 5 and why this "x" is called "times" and why does every parent in our childhood wanted us to learn tables?</p>
+        <p>We will all learn this by doing a simple task, by just counting the total number of hands in the pic.</p>
+
+        <div class="imgcontainer">        
+          <img class="center" style="width: 100%;" src="hand_raise.jpg">
+          <h3 id="demo" class="top-right"></h3>
+
+
+        </div>
+           
+          <br>
+          <button id="your-btn" class="w3-btn w3-block w3-teal" onclick="myFunction()">Count the number of hands</button>
+
+          <script>
+          count = 1;
+
+          loc = ["660px", "600px", "580px","525px","505px","450px","430px","370px","355px","290px","270px","215px","190px","135px","115px","30px"];
+          function myFunction() {
+            document.getElementById("demo").innerHTML = count;
+            document.getElementById("demo").style.left = loc[16 - count];
+
+            if (count < 16){ 
+                document.getElementById("your-btn").disabled = false;}
+            else {
+                document.getElementById("your-btn").disabled = true;}
+            count = count + 1;
+          }
+          </script>
+
+        <br>
+        <br>
+
+
+        <p>So this is one way of counting stuff, but it's not the fastest, and this type of counting is done by people who don't know about multiplication, so let's see what is the best way of doing it.</p>
+        <p>Our surrounding is made of a lot of collections and groups, including both man-made and natural, thus you can easily spot groups around yourself like in your classroom, parking lot, on streets, etc and once you identify groups around yourself, it is simple to count from there. Let's see how:</p>
+        <p>As in the above example, we can spot a pair of hands for every kid so instead of counting hands we could count the total number of kids and multiply it by 2. </p>
+        <br>
+        <p style="text-align: center; color: darkblue;">2 multiply by total number of kids</p>
+        <p style="text-align: center; color: darkblue;">2 multiply by 8</p>
+        <p style="text-align: center; color: darkblue;">2 Groups of 8</p>
+        <p style="text-align: center; color: darkblue;">2 x 8</p>
+        <p style="text-align: center; color: darkblue;">2 + 2 + 2 + 2 + 2 + 2 + 2 + 2</p>
+        <p style="text-align: center; color: darkblue;">16</p>
+
+        <p>But wait how this method is faster than the normal counting, we still had to add 2, eight times. It isn't right now but stay with us for more examples then you will understand how it is faster. </p>
+        <p>Ok, let's count all the fingers this time instead of hands, So it will go like 1,2.......9,10,11,12......19,20,21,22......80.</p>
+        <img class="center" src="10-fingers-01.png">
+        <p>Again it wasn't the smartest way, as we can find groups within those, like everyone have 10 fingers and there are 8 of the people there so the total number of fingers will be 10 multiplied by 8 i.e 80.</p>
+        
+        
+        <p style="text-align: center; color: darkblue;">10 multiply by 8</p>
+        <p style="text-align: center; color: darkblue;">10 Groups of 8</p>
+        <p style="text-align: center; color: darkblue;">10 x 8</p>
+        <p style="text-align: center; color: darkblue;">10 + 10 + 10 + 10 + 10 + 10 + 10 + 10</p>
+        <p style="text-align: center; color: darkblue;">80</p>
+
+        <p>Or one more way is to count the fingers of just one hand i.e 5 and multiply with the 8 people and then multiply the whole thing with 2 as everyone has two hands.</p>
+        <p style="text-align: center; color: darkblue;"><img src="10-fingers-01.jpg"> x Total people x Total hands</p>
+        <p style="text-align: center; color: darkblue;">5 x 8 x 2</p>
+        <p style="text-align: center; color: darkblue;">(5 + 5 + 5 + 5 + 5 + 5 + 5 + 5) x 2</p>
+        <p style="text-align: center; color: darkblue;">40 x 2</p>
+        <p style="text-align: center; color: darkblue;">40 + 40</p>
+        <p style="text-align: center; color: darkblue;">80</p>
+
+
+        <p>And still adding 10 and 4, eight times is not faster, Let's see one more example, and then we will talk about how can we make it faster.</p>
+
+        
+
+
+        <div class="imgcontainer">        
+          <!-- <img class="center" style="width: 100%;" src="windows_building.png"> -->
+          <div>
+          <img id='theImg' style="width: 100%;" class="center" src='windows_building.png'>
+          <h3 id="sdemo" class="top-right"></h3>
+        </div>
+           
+          <br>
+          <button id="syour-btn" class="w3-btn w3-block w3-yellow" onclick="mySFunction()">Count the number of windows</button>
+
+          <script>
+          scount = 1;
+          
+
+          sloc = ["50px","180px","310px","440px","440px","310px","180px","50px","50px","180px","310px","440px","440px","310px","180px","50px","50px","180px","310px","440px","440px","310px","180px","50px"];
+          lloc = ["50px","50px","50px","50px","180px","180px","180px","180px","310px","310px","310px","310px","440px","440px","440px","440px","560px","560px","560px","560px","680px","680px","680px","680px"]
+          function mySFunction() {
+            document.getElementById("sdemo").innerHTML = scount;
+            document.getElementById("sdemo").style.left = lloc[scount-1];
+            document.getElementById("sdemo").style.top = sloc[scount-1];
+
+            if (scount < 24){ 
+                document.getElementById("syour-btn").disabled = false;}
+            else {
+                document.getElementById("syour-btn").disabled = true;}
+            scount = scount + 1;
+          }
+          </script>
+          <br>
+          <br>
+          <canvas id='myCanvas' width='536px' height='720px'></canvas>
+
+          <p>This is one regular way to count but a better way to count is by groups and subgroups as we have done previously. One way I see is if we count the number of windows in a single color block building and multiply by 3(the total buildings): </p>
+          <input id='eightdraw-btn' type='button' value='Groups of 8' onclick='eightDraw()' >
+          
+          <p style="text-align: center; color: darkblue;">8 multiply by 3</p>
+          <p style="text-align: center; color: darkblue;">8 Groups of 3</p>
+          <p style="text-align: center; color: darkblue;">8 x 3</p>
+          <p style="text-align: center; color: darkblue;">8 + 8 + 8</p>
+          <p style="text-align: center; color: darkblue;">24</p>
+
+
+          <p>One another way I see is if we count the total windows in a single vertical block i.e 4 and multiply by total vertical blocks i.e 6: </p>
+          <input id='draw-btn' type='button' value='Groups of 4' onclick='Draw()' >
+          
+          <p style="text-align: center; color: darkblue;">4 multiply by 6</p>
+          <p style="text-align: center; color: darkblue;">4 Groups of 6</p>
+          <p style="text-align: center; color: darkblue;">4 x 6</p>
+          <p style="text-align: center; color: darkblue;">4 + 4 + 4 + 4 + 4 + 4</p>
+          <p style="text-align: center; color: darkblue;">24</p>
+
+          <!-- <script type="text/javascript">
+
+  var img = document.getElementById("theImg");
+  var cnvs = document.getElementById("myCanvas");
+  
+  cnvs.style.position = "absolute";
+  cnvs.style.left = img.offsetLeft + "px";
+  cnvs.style.top = img.offsetTop + "px";
+  
+  var ctx = cnvs.getContext("2d");
+            function Draw(){
+
+
+
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = 'red';
+  ctx.strokeRect(15, 5, 85, 495);
+  
+}
+
+
+function eightDraw(){
+
+
+  ctx.cleaRect(15, 5, 85, 495);
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = 'yellow';
+  ctx.strokeRect(15, 5, 180, 495);
+}
+          </script> -->
+
+          <!-- <div>
+            <input id='draw-btn' type='button' value='Draw' onclick='Draw()' />
+          </div> -->
+          <!-- <img id='theImg' style="width: 100%;" src='windows_building.png'>
+          <canvas id='myCanvas' width='536px' height='536px'></canvas> -->
+
+    </main>
+ </div>
+</body>
