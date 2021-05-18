@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<title>Fractions</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://martian07.github.io/intuitiveAI/medium.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="scripts/jquery.table.transpose.min.js"></script>
+  <style>
+
+    #cf {
+      position:relative;
+      height:281px;
+      width:450px;
+      margin:0 auto;
+    }
+
+    #cf img {
+      position:absolute;
+      left:0;
+      -webkit-transition: opacity 5s ease-in-out;
+      -moz-transition: opacity 5s ease-in-out;
+      -o-transition: opacity 5s ease-in-out;
+      transition: opacity 5s ease-in-out;
+    }
+
+    #cf img.bottom:hover {
+      opacity:0;
+    }
+
+
+    .im {
+      background: url("steer.png");
+    }
+
+
+    td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width:120px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgcontainer {
+  position: relative;
+  text-align: center;
+  color: yellow;
+}
+
+.top-right {
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; height: 70px;">
+    <a href="https://martian07.github.io/intuitiveAI/" class="w3-bar-item w3-button">Martian 07</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="https://martian07.github.io/intuitiveAI/#readings" class="w3-bar-item w3-button">Readings</a>
+      <a href="https://martian07.github.io/intuitiveAI/#about" class="w3-bar-item w3-button">About</a>
+      <a href="https://martian07.github.io/intuitiveAI/#connect" class="w3-bar-item w3-button">Connect</a>
+    </div>
+  </div>
+</div>
+ <br>
+ <br>
+ <br> 
+  <div class="container">
+    <div class="meta"> 
+      <div class="image">
+        <!-- <iframe width=540px; height=305px; src="https://www.youtube.com/embed/OHJbv0RoVdQ?controls=1" frameborder="0" allowfullscreen></iframe> -->
+        <img width=540px; height=350px; src="cold-thermometer.jpg">
+      </div>
+      <div class="info"> 
+        <h1>Fractions: The Incomplete Divide</h1>
+      </div>
+    </div>
+    <main class="article">
+
+
+        <p><span class="first-letter">B</span>efore understanding fractions, We will understand divide first or division in common. The division is inverse of Multiplication, in multiplication we do repetitive addition, and in the division, we do repetitive subtraction. </p>
+        <img class="center" style="width: 80%;" src="hunt.jpg">
+        <p>Let's learn by this example, Primitive people didn't know how to divide so whenever they would go for a hunt or to pick some cherries or fruits, there would be an internal fight between tribes and tribe members when they had to share food because they didn't know how to equally distribute the food and sometimes these fights will burn more energy and injury that wasn't even worth hunting or gathering. So people came with the idea of repetitive subtraction which was basically "divide" itself.</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <img class="center" style="width: 80%;" src="banana.webp">
+        <p>Initially when the division was not there and you were asked to divide these 15 bananas to these 3 children, the first idea will give one-one banana to each child until you finish distributing all 15 of them and then count the number of banana to one of the children and that will tell you the equal share in which they were divided.</p>
+        
+        <video class="center" style="width: 80%;"controls autoplay>
+          <source src="InShot_20210505_021431626.mp4" type="video/mp4">
+
+        </video>
+        <p>So it will be 5 bananas for each of the kids if we divide 15 bananas into 3 kids.</p>
+        <p>But this method is really not a smart way to do the division like one by one, what if there were 150 or 1500 bananas. The smart way would be to find the groups of 3 bananas in a bunch of 15.</p>
+
+        <img class="center" style="width: 70%;" src="banana15.png">
+        <p>Now the total number of groups of 3 will be the total number of bananas that each child will get i.e 5</p>
+
+        <p>Another way is to use the multiples(Table) of 3 in order to find the groups of 3 which add up to is 15.</p>
+        <p style="color: darkblue;">3 x 1 = 3 = 3</p>
+        <p style="color: darkblue;">3 x 2 = 3 + 3 = 6</p>
+        <p style="color: darkblue;">3 x 3 = 3 + 3 + 3 = 9</p>
+        <p style="color: darkblue;">3 x 4 = 3 + 3 + 3 + 3 = 12</p>
+        <p style="color: brown;">3 x 5 = 3 + 3 + 3 + 3 + 3 = 15</p>
+        <p>So we can see 3 times 5 is 15 thus 5 groups of 3 can be distributed equally amongst 15, where everybody getting five-five bananas each.</p>
+        <p>That was Division but there is a thing which we can't solve without Fractions, lets hit that.</p>
+       
+        <h1>Fractions</h1>
+        <p>What if there were 16 bananas and had to share it with 3 people, so we know for 15 it will be five to each of them but what will happen to the extra banana?</p>
+        <img class="center" style="width: 70%;" src="tempFileForShare_20210510-141220.jpg">
+        <p>We can slice that extra banana into 3 pieces equally and share each piece with every child.</p>
+        <img class="center" style="width: 70%;" src="сolorful-math-fractions-bananas-as-sample-violet-background-interesting-math-kids-education-сolorful-math-fractions-152436332.jpg">
+        <p>So now every child will get 5 bananas and 1/3 bananas:</p>
+        <ul class="w3-ul w3-xxlarge">
+          <li>1. kid = 5 + &#8531 = 5&#8531</li>
+          <li>2. kid = 5 + &#8531 = 5&#8531</li>
+          <li>3. kid = 5 + &#8531 = 5&#8531</li>
+        </ul>
+        <p>Let's add them together to see how operations work in fractions. </p>
+        <p style="color: darkblue;">kid1 + kid2<br>
+          5 + &#8531 + 5 + &#8531 + 5 + &#8531<br>
+          5&#8531 + 5&#8531 + 5&#8531<br>
+          10 + &#8531 + &#8531 + 5&#8531<br>
+        
+        
+        </p>
+    </main>
+</body>
