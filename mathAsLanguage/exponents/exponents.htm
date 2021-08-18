@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<title>Exponents</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://martian07.github.io/intuitiveAI/medium.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="scripts/jquery.table.transpose.min.js"></script>
+  <style>
+
+    #cf {
+      position:relative;
+      height:281px;
+      width:450px;
+      margin:0 auto;
+    }
+
+    #cf img {
+      position:absolute;
+      left:0;
+      -webkit-transition: opacity 5s ease-in-out;
+      -moz-transition: opacity 5s ease-in-out;
+      -o-transition: opacity 5s ease-in-out;
+      transition: opacity 5s ease-in-out;
+    }
+
+    #cf img.bottom:hover {
+      opacity:0;
+    }
+
+
+    .im {
+      background: url("steer.png");
+    }
+
+
+    td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width:120px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgcontainer {
+  position: relative;
+  text-align: center;
+  color: yellow;
+}
+
+.top-right {
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar (sit on top) -->
+<div class="w3-hide-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; height: 70px;">
+    <a href="https://martian07.github.io/intuitiveAI/" class="w3-bar-item w3-button">Martian 07</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="https://martian07.github.io/intuitiveAI/#readings" class="w3-bar-item w3-button">Readings</a>
+      <a href="https://martian07.github.io/intuitiveAI/#about" class="w3-bar-item w3-button">About</a>
+      <a href="https://martian07.github.io/intuitiveAI/#connect" class="w3-bar-item w3-button">Connect</a>
+    </div>
+  </div>
+</div>
+ <br>
+ <br>
+ <br> 
+  <div class="container">
+    <div class="meta"> 
+      <div class="image">
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/t-6hrrNdRzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <img width=540px; height=350px; src="exponent_img2.jpg">
+      </div>
+      <div class="info"> 
+        <h1>Exponents</h1>
+      </div>
+    </div>
+    <main class="article">
+
+
+        <p><span class="first-letter">A</span>s we know, repetitive Addition is known as Multiplication. 
+          Similarly, repetitive Multiplication is known as Exponents or Powers.</p>
+        <p style="text-align: center;">2 + 2 + 2 = 2 x 3<br>
+          2 x 2 x 2 = 2 ^ 3</p>
+        <p style="text-align: center;">or</p>
+        <h3 style="text-align: center;">2 x 2 x 2 = 2<sup>3</sup></h3>
+        <p>Repetition of 3's are called <span class="highlighted">Cube</span>, like above in the example. </p>
+        <p>And the repetition of 2's are called <span class="highlighted">Square</span> like 2 x 2 i.e 2<sup>2</sup>.</p>
+        <p>These were exponents but this is not the end, real problems come when you have to multiply and divide a large number of exponents and it could become really lengthy and there we have to act smart. Like these ones:</p>
+        <p style="text-align: center; color: darkblue;">2<sup>31</sup>  /  2<sup>29</sup></p>
+
+        <p>Next will be to solve 2<sup>31</sup> by multiplying 2 repeatedly till 31 times like this 2 x 2 x 2 ........2, similarly with 2<sup>29</sup>. </p>
+
+        <p style="text-align: center; color: darkblue;">2147483648 / 536870912</p>
+        
+        <p style="text-align: center;">After dividing</p>
+
+        <p style="text-align: center; color: darkblue;">2147483648 / 536870912</p>
+        
+        <p>Dividing this will be a daunting task to do.</p>
+
+        <p style="text-align: center; color: darkblue;">After division it will be 4 </p>
+
+        <br>
+        <br>
+        <h3>Deduction and Prototypings</h3>
+        <p>Using this technique, we could really find a pattern to solve a complex math problem by just using small numbers which eases up the calculation, and finding a pattern becomes easier then, Let's see in our case.</p>
+        <p style="text-align: center; color: darkblue;">2<sup>31</sup>  /  2<sup>29</sup></p>
+        <p>Instead</p>
+        <p style="text-align: center; color: darkblue;">2<sup>3</sup>  /  2<sup>2</sup></p>
+        <p style="text-align: center; color: darkblue;">2 x 2 x 2  /  2 x 2</p>
+        <p style="text-align: center; color: darkblue;">8  /  4</p>
+        <p style="text-align: center; color: darkblue;">2</p>
+        <br>
+
+        <p>Now solving this without simplifying exponents.</p>
+
+        <p style="text-align: center; color: darkblue;">2<sup>3</sup>  /  2<sup>2</sup></p>
+        <p>and you know division means repetitive subtraction so,</p>
+        <p style="text-align: center; color: darkblue;">2<sup>3-2</sup></p>
+        <p style="text-align: center; color: darkblue;">2<sup>1</sup></p>
+        <p style="text-align: center; color: darkblue;">2</p>
+        <p>As we can see, the above solution is pretty simple and we can see the pattern that when the base is the same we can literally subtract exponents for division and we will get the same answer 2.</p>
+        <p>And now applying the same observation to our main problem with the bigger numbers. </p>
+
+        <p style="text-align: center; color: darkblue;">2<sup>31</sup>  /  2<sup>29</sup></p>
+        <p style="text-align: center; color: darkblue;">2<sup>31-29</sup></p>
+        <p style="text-align: center; color: darkblue;">2<sup>2</sup></p>
+        <p style="text-align: center; color: darkblue;">4</p>
+        <p>Aha! That was easy right far less calculation and no big numbers and yet we still got the same answer 4.</p>
+        
+        <p>So we conclude for our practice that, <br>
+        <span style="text-decoration: underline;">while dividing these kind of number we subtract powers with the same base.</span></p>
+        
+        <h3 style="font-style:italic ;">Similarly</h3>
+        <p>while multiplying these kind of number we add powers with the same base. Try a example by yourself and test that.</p>
+
+
+    </main>
+</body>
