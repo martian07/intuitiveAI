@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<title>Differentiation</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://martian07.github.io/intuitiveAI/medium.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="scripts/jquery.table.transpose.min.js"></script>
+  <style>
+
+    #cf {
+      position:relative;
+      height:281px;
+      width:450px;
+      margin:0 auto;
+    }
+
+    #cf img {
+      position:absolute;
+      left:0;
+      -webkit-transition: opacity 5s ease-in-out;
+      -moz-transition: opacity 5s ease-in-out;
+      -o-transition: opacity 5s ease-in-out;
+      transition: opacity 5s ease-in-out;
+    }
+
+    #cf img.bottom:hover {
+      opacity:0;
+    }
+
+
+    .im {
+      background: url("steer.png");
+    }
+
+
+    td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width:120px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgcontainer {
+  position: relative;
+  text-align: center;
+  color: yellow;
+}
+
+.top-right {
+
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+  </style>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ extensions: ["tex2jax.js"], jax: ["input/TeX", "output/HTML-CSS"], tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true }, "HTML-CSS": { availableFonts: ["TeX"] } });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+
+
+</head>
+<body>
+
+  <!-- Navbar (sit on top) -->
+<div class="w3-hide-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px; height: 70px;">
+    <a href="https://martian07.github.io/intuitiveAI/" class="w3-bar-item w3-button">Martian 07</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="https://martian07.github.io/intuitiveAI/#readings" class="w3-bar-item w3-button">Readings</a>
+      <a href="https://martian07.github.io/intuitiveAI/#about" class="w3-bar-item w3-button">About</a>
+      <a href="https://martian07.github.io/intuitiveAI/#connect" class="w3-bar-item w3-button">Connect</a>
+    </div>
+  </div>
+</div>
+ <br>
+ <br>
+ <br> 
+  <div class="container">
+    <div class="meta"> 
+      <div class="image">
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/t-6hrrNdRzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <img width=540px; height=350px; src="derivative-x-squared.png">
+      </div>
+      <div class="info"> 
+        <h1>Differentiation</h1>
+      </div>
+    </div>
+    <main class="article">
+
+
+        <p><span class="first-letter">A</span>  car &#127950; started and reached 1 meter in 1 sec and 4 meters in 2 sec and 9 meters in 3 sec and so on, like the distance traveled was square of the time taken.</p>
+        <img class="center" style="width: 75%;" src="x2.jpg">
+        <p>And after plotting Time in sec on the horizontal axis and Distance in meters on the vertical axis, we could clearly see that it's a function of X<sup>2</sup>.</p>
+        <p>Now if I ask you to tell the speed(velocity) in which the car traveled till 12 meters.</p>
+        <p style="text-align: center; color: darkblue;">Distance = Speed x Time</p>
+        <p style="text-align: center; color: darkblue;">Speed = Distance/Time</p>
+        <p style="text-align: center; color: darkblue;">Speed = 12meters/3.5sec</p>
+        <p style="text-align: center; color: darkblue;">Speed = 3.4 meters/sec</p>
+        
+        <p>This means the car traveled 3.4 meters per second all the time to reach 12 meters but this is not true at all, as we know no object can start moving at a certain speed it has to start from 0.</p>
+        <p>So we can conclude that the above speed(velocity) is not the exact or instant speed but it's more like an average speed throughout the journey.</p>
+        <p>To get the instant speed, we break down the time of the journey in small intervals to get the instant speed at that small time period.
+          Like from 0 to 1, 1 to 2, 2 to 3 and so on.</p>
+
+        <img class="center" style="width: 75%;" src="x2 (1).png">
+        <p>And we calculated the speed of those time periods using the slope of that time periods, as both are the same in this case.</p>
+      
+        <p>$slope=\frac{difference\hspace{0.1cm}in\hspace{0.1cm}vertical\hspace{0.1cm}axis}{difference\hspace{0.1cm}in\hspace{0.1cm}horizontal\hspace{0.1cm}axis} = \frac{difference\hspace{0.1cm}in\hspace{0.1cm}distance}{difference\hspace{0.1cm}in\hspace{0.1cm}time}= speed$</p>
+
+        
+
+        <p>As we can see speed is 1 meter per sec between 0 to 1 sec and from 1  to 2 sec speed is 3 meters per sec and so on..</p>
+        <p>But this is completely not accurate as I will tell you next.
+        </p>
+        
+        <img class="center" style="width: 75%;" src="x2_bigger_slope_real.png">
+        
+        <p>If you see this green area, there are two line functions, very close, very similar to each other. The red one is our function X2 and the black one is the nearest straight line function which I have drawn and the speed which we have calculated using slope is taken from the black line function because the slope is consistent(i.e 1 m/sec) even if you break that function into two or three.</p>
+
+        <img class="center" style="width: 75%;" src="x2_sml.png">
+        <p>Whereas, if you draw this approximately equal black straight-lines function alongside these two smaller parts, you will find two different slopes i.e 0.5 m/sec, and 3 m/sec which is far more accurate than the combined `1 m/sec.</p>        
+        <img class="center" style="width: 75%;" src="x2_small_two_real.png">
+        <p>So we can conclude that the straight-line approximation function we created to calculate slope/speed of our function at those time intervals fits better as we go small and small intervals and give accurate results instead of loosely fitting approximation like one in the previous one from 0 to 1.        </p>
+        <img class="center" style="width: 75%;" src="x2_bigger_slope2.png">
+        <p>Similarly, slope 3 between the time period 1 to 2 sec is not accurate as the approximation function doesn't fit as well as it will fit when break the time period into two, 1 to 1.5 sec and 1.5 to 2 sec.</p>
+        <img class="center" style="width: 75%;" src="x2_boke_small2_real.png">
+      
+        <p>And again now calculating slope/speed but this time with a much smaller time period from 0 to 0.5, 0 to 1, 1 to 1.5, and so on, using our same approximation method.</p>
+        <img class="center" style="width: 75%;" src="x2_boke.png">
+        <p>This time we can say that the speed we calculated at every instant of the journey is quite accurate by seeing the fitting line below and 
+          the more the smaller time period greater the accuracy.</p>
+        <img class="center" style="width: 75%;" src="x2_boke_small_black.png">
+        <p>And if you think wisely, longer the time span to calculate the speed more the variable speed it will encompass and shorter the time span more constant and instant speed you will get like you are riding a bike and it is a high chance that you will change the speed within a minute but within a second you can't do much so automatically you will get instant and accurate speed at that time.</p>
+        <br>
+        <h3>Now lets plot our results</h3>
+
+        <ul class="w3-ul ">
+          <img class="center" style="width: 45%;" src="threepoint4.png">
+          <li>Average speed 3.4 m/s</li>
+
+
+          <img style="width: 45%; float:left" src="x2_bigger_slope_real.png">
+          <img style="width: 54%; float: right;" src="onesec.png">
+          <li><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Instant speeds within a time interval of 1 sec which are 1, 3, 5, 7 metres per sec and so on.</li>
+          <br>
+          <br>
+          <img style="width: 45%; float:left" src="x2_boke_small_black.png">
+          <img style="width: 54%; float: right;" src="zero5sec.png">
+          <li><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Instant speeds within a time interval of 0.5 sec which are 0.5, 3, 2.5, 3.5, 4, 6, 6 metres per sec and so on.</li>
+          <br>
+          <br>
+          <img style="width: 54%; float: right;" src="onesecsmall.png">
+          <li><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Similarly, We calculated slope/speeds at even a small time interval than previously i.e 0.2 sec and plotted in Time vs Speed plot.</li>
+          <br>
+          <br>
+          <br>
+          <br>
+          <img style="width: 54%; float: right;" src="twox.png">
+          <li><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Similarly, We calculated slope/speeds at even a small time interval than previously i.e 0.2 sec and plotted in Time vs Speed plot.<br>
+            And if you take a closer look at this graph, you will see that at 1 sec speed is 2 m/s, at 2 sec the speed is 4 m/s and at 3 sec the speed is 6 m/s and so on. So we can say that the following newly created function is 2X.
+          </li>
+   
+        </ul>
+        <p>
+          In the end, we can conclude that If we break a function into so many tiny parts that so that its straight line approximation function fits well with it and hence we can calculate accurate slopes and in this case its speed and once we assemble these we can get the slope/speed of the whole function.<br>
+In this example, we got the slope/speed of the X<sup>2</sup> function equal to 2X. 
+        </p>
+      </main>
+</body>
